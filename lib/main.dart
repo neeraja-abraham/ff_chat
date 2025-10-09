@@ -1,8 +1,5 @@
 import 'package:ff_chat/firebase_options.dart';
-import 'package:ff_chat/src/notifications/notification_handler.dart';
-import 'package:ff_chat/src/pages/auth_gate.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
@@ -11,16 +8,8 @@ final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // if (kIsWeb) {
-  //   await Firebase.initializeApp(
-  //     options: DefaultFirebaseOptions.currentPlatform.copyWith(
-  //       databaseURL: 'https://msta-pits-dev-default-rtdb.firebaseio.com',
-  //     ),
-  //   );
-  //   await setupWebNotifications();
-  // } else {
+
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  // }
 
   // Initialize local notifications
   const AndroidInitializationSettings androidInitSettings =

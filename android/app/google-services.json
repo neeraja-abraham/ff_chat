@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "302427474416",
+    "project_id": "msta-pits-dev",
+    "storage_bucket": "msta-pits-dev.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:302427474416:android:98dffb73e25a366596f535",
+        "android_client_info": {
+          "package_name": "ai.orthoped.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNNJ-P9Mam5svO5yLNQ0FrOjZP7NRJNEA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:302427474416:android:ae59984541adc9c996f535",
+        "android_client_info": {
+          "package_name": "ai.orthoped.app.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNNJ-P9Mam5svO5yLNQ0FrOjZP7NRJNEA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:302427474416:android:50ce5be0e84c35b296f535",
+        "android_client_info": {
+          "package_name": "com.pits.ff_chat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNNJ-P9Mam5svO5yLNQ0FrOjZP7NRJNEA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

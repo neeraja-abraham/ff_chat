@@ -10,6 +10,10 @@ export 'src/services/storage_service.dart';
 export 'src/services/chat_session_manager.dart';
 export 'src/services/presence_service_pub.dart';
 
+// Notifications
+export 'src/notifications/notification_service_mobile.dart';
+
+
 //Pages
 export 'src/pages/chat_screen_pub.dart';
 
