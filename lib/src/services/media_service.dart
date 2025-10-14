@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 import 'dart:io' show File; // Only works on mobile
 
-import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/foundation.dart' show kIsWeb, debugPrint;
 import 'package:file_picker/file_picker.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -65,6 +65,7 @@ class MediaService {
         'pptx',
       ],
     );
+    debugPrint('RESULT:::$result');
     if (result != null) {
       final file = result.files.single;
       if (kIsWeb) {

@@ -1,21 +1,22 @@
 {
   "project_info": {
-    "project_number": "302427474416",
-    "project_id": "msta-pits-dev",
-    "storage_bucket": "msta-pits-dev.firebasestorage.app"
+    "project_number": "620673198205",
+    "firebase_url": "https://ff-chat-87c02-default-rtdb.firebaseio.com",
+    "project_id": "ff-chat-87c02",
+    "storage_bucket": "ff-chat-87c02.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:302427474416:android:98dffb73e25a366596f535",
+        "mobilesdk_app_id": "1:620673198205:android:b323650eb702b142dee914",
         "android_client_info": {
-          "package_name": "ai.orthoped.app"
+          "package_name": "com.example.ff_chat"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCNNJ-P9Mam5svO5yLNQ0FrOjZP7NRJNEA"
+          "current_key": "AIzaSyBxAuuh_2STtKtkiBP8hvVDrMBBM9b0CEU"
         }
       ],
       "services": {
@@ -26,34 +27,15 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:302427474416:android:ae59984541adc9c996f535",
+        "mobilesdk_app_id": "1:620673198205:android:bfb2fcc2f7243309dee914",
         "android_client_info": {
-          "package_name": "ai.orthoped.app.dev"
+          "package_name": "com.example.fff_chat_pub_test"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCNNJ-P9Mam5svO5yLNQ0FrOjZP7NRJNEA"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:302427474416:android:50ce5be0e84c35b296f535",
-        "android_client_info": {
-          "package_name": "com.pits.ff_chat"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCNNJ-P9Mam5svO5yLNQ0FrOjZP7NRJNEA"
+          "current_key": "AIzaSyBxAuuh_2STtKtkiBP8hvVDrMBBM9b0CEU"
         }
       ],
       "services": {

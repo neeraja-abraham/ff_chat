@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ff_chat/src/models/chat_message.dart';
 import 'package:ff_chat/src/widgets/file_message_bubble.dart';
+import 'package:ff_chat/src/widgets/image_bubble.dart';
 import 'package:ff_chat/src/widgets/video_message_bubble.dart';
 import 'package:ff_chat/src/utils/format_utils.dart';
 
@@ -42,7 +43,7 @@ class MessageBubble extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-               formatTimestamp(message.createdAt.toDate()),
+                formatTimestamp(message.createdAt.toDate()),
                 style: TextStyle(fontSize: 10, color: Colors.grey),
               ),
               SizedBox(width: 6),
@@ -77,15 +78,16 @@ class MessageBubble extends StatelessWidget {
           case MessageStatus.uploading:
             return LinearProgressIndicator();
           case MessageStatus.sent:
-            return CachedNetworkImage(
-              height: height,
-              width: width,
-              imageUrl: message.mediaDownloadUrl ?? '',
-              fit: BoxFit.cover,
-              placeholder: (context, url) =>
-                  Center(child: CircularProgressIndicator()),
-              errorWidget: (context, url, error) => Icon(Icons.broken_image),
-            );
+            return ImageBubble(imageUrl: message.mediaDownloadUrl ?? '');
+          // return CachedNetworkImage(
+          //   height: height,
+          //   width: width,
+          //   imageUrl: message.mediaDownloadUrl ?? '',
+          //   fit: BoxFit.cover,
+          //   placeholder: (context, url) =>
+          //       Center(child: CircularProgressIndicator()),
+          //   errorWidget: (context, url, error) => Icon(Icons.broken_image),
+          // );
           case MessageStatus.failed:
             return Stack(
               alignment: Alignment.center,
@@ -138,6 +140,4 @@ class MessageBubble extends StatelessWidget {
         }
     }
   }
-  
-  
 }

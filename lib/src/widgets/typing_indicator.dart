@@ -10,7 +10,6 @@ class TypingIndicator extends StatelessWidget {
 
   final String chatRoomId;
   final String currentUserId;
-  // User? user = AuthService().getCurrentUser();
 
   @override
   Widget build(BuildContext context) {

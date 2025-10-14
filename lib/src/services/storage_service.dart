@@ -1,4 +1,3 @@
-
 import 'package:ff_chat/src/services/media_service.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
@@ -13,7 +12,7 @@ class StorageService {
   Future<String?> uploadFileToChat({
     required PickedMedia media,
     required String chatId,
-    required MediaUploadType typeFolder
+    required MediaUploadType typeFolder,
   }) async {
     Reference fileRef = _storage
         .ref("chats/$chatId/$typeFolder")
@@ -26,9 +25,6 @@ class StorageService {
     } else if (media.file != null) {
       uploadTask = fileRef.putFile(media.file!);
     } else {}
-
-    // final snapshot = await uploadTask;
-    // return snapshot.ref.getDownloadURL();
 
     return uploadTask?.then((p) {
       if (p.state == TaskState.success) {

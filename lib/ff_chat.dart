@@ -8,14 +8,13 @@ export 'src/services/chat_service.dart';
 export 'src/services/media_service.dart';
 export 'src/services/storage_service.dart';
 export 'src/services/chat_session_manager.dart';
-export 'src/services/presence_service_pub.dart';
+export 'src/services/presence_service.dart';
 
 // Notifications
-export 'src/notifications/notification_service_mobile.dart';
-
+export 'src/notifications/notification_service.dart';
 
 //Pages
-export 'src/pages/chat_screen_pub.dart';
+export 'src/pages/chat_screen.dart';
 
 // Widgets
 export 'src/widgets/message_bubble.dart';

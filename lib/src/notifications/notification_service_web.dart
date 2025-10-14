@@ -1,33 +1,40 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/foundation.dart';
 import 'package:web/web.dart' as web;
 import 'dart:js_interop';
 
-Future<void> setupFCM(String uid) async {
+Future<void> setupFCM({
+  required String currentUserId,
+  required String vapidKey,
+}) async {
+  debugPrint(':::Setting up FCMWeb ');
   FirebaseMessaging messaging = FirebaseMessaging.instance;
 
   await messaging.requestPermission(alert: true, badge: true, sound: true);
 
-  final token = await messaging.getToken(
-    vapidKey:
-        'BDjklMFCrOwY92Ra6ykDqxJh8Teca9vyF41hAOnNt82D3KuUNv72cz07Vr-meHLVLGPmpkQwhjZHnnWQhNNVHV8',
-  );
+  final token = await messaging.getToken(vapidKey: vapidKey);
 
-  if (token != null) await saveTokenToFirestore(uid, token);
+  if (token != null) await saveTokenToFirestore(currentUserId, token);
 
   FirebaseMessaging.instance.onTokenRefresh.listen((newToken) async {
-    await saveTokenToFirestore(uid, newToken);
+    await saveTokenToFirestore(currentUserId, newToken);
   });
 
-  FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
-    final title = message.notification?.title ?? 'New message';
-    final body = message.notification?.body ?? '';
+  //Excluded notification when page is in foreground. Uncomment the
+  //code below if foreground notifications needed.
 
-    final permission = await web.Notification.requestPermission().toDart;
-    if (permission == 'granted') {
-      web.Notification(title, web.NotificationOptions(body: body));
-    }
-  });
+  // FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
+  //   if (web.document.hasFocus()) {
+  //     final title = message.notification?.title ?? 'New message';
+  //     final body = message.notification?.body ?? '';
+
+  //     final permission = await web.Notification.requestPermission().toDart;
+  //     if (permission == 'granted') {
+  //       web.Notification(title, web.NotificationOptions(body: body));
+  //     }
+  //   }
+  // });
 
   FirebaseMessaging.onMessageOpenedApp.listen((message) {
     final chatId = message.data['chatId'];

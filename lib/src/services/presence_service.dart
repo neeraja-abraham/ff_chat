@@ -1,9 +1,10 @@
-import 'package:firebase_auth/firebase_auth.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 class PresenceService with WidgetsBindingObserver {
-  final user = FirebaseAuth.instance.currentUser!;
+  final String userId;
+  PresenceService({required this.userId});
   final dbRef = FirebaseDatabase.instance;
 
   final connectedData = {
@@ -27,27 +28,25 @@ class PresenceService with WidgetsBindingObserver {
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    final statusRef = dbRef.ref("status/${user.uid}");
+    final statusRef = dbRef.ref("status/${userId}");
 
     if (state == AppLifecycleState.inactive ||
         state == AppLifecycleState.paused) {
       statusRef.set(disConnectedData);
     } else if (state == AppLifecycleState.resumed) {
-      statusRef.set(disConnectedData);
+      statusRef.set(connectedData);
     }
     super.didChangeAppLifecycleState(state);
   }
 
   Future<void> setUserPresence() async {
-    final statusRef = dbRef.ref("status/${user.uid}");
+    final statusRef = dbRef.ref("status/$userId");
     await statusRef.onDisconnect().set(disConnectedData);
     await statusRef.set(connectedData);
   }
 
   Future<void> setTyping(String chatId, bool isTyping) async {
-    final typingRef = FirebaseDatabase.instance.ref(
-      "typing/$chatId/${user.uid}",
-    );
+    final typingRef = FirebaseDatabase.instance.ref("typing/$chatId/$userId");
     await typingRef.set(isTyping);
   }
 }

@@ -47,7 +47,6 @@ class FileMessageBubble extends StatelessWidget {
   }
 
   void _showSnack(BuildContext context, String message) {
-    debugPrint(':::Error:$message');
     ScaffoldMessenger.of(
       context,
     ).showSnackBar(SnackBar(content: Text(message)));
