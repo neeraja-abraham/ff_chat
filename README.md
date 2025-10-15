@@ -6,7 +6,7 @@ A Firebase-based chat UI package for Flutter apps.
 - Real-time chat using Firestore
 - Image / Video / File message support
 - Firebase Cloud Messaging (Push Notifications)
-- Works on Android, iOS, Web
+- Works on Android, Web
 
 ## 🚀 Getting Started
 

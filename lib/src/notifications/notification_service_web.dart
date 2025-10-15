@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
-import 'package:web/web.dart' as web;
-import 'dart:js_interop';
+//import 'package:web/web.dart' as web;
+//import 'dart:js_interop';
 
 Future<void> setupFCM({
   required String currentUserId,
