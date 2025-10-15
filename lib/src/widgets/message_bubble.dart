@@ -1,12 +1,10 @@
 import 'dart:io';
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ff_chat/src/models/chat_message.dart';
+import 'package:ff_chat/src/utils/format_utils.dart';
 import 'package:ff_chat/src/widgets/file_message_bubble.dart';
 import 'package:ff_chat/src/widgets/image_bubble.dart';
 import 'package:ff_chat/src/widgets/video_message_bubble.dart';
-import 'package:ff_chat/src/utils/format_utils.dart';
-
 import 'package:flutter/material.dart';
 
 class MessageBubble extends StatelessWidget {
@@ -67,8 +65,6 @@ class MessageBubble extends StatelessWidget {
     Color textColor,
     BuildContext context,
   ) {
-    final height = MediaQuery.of(context).size.height * .25;
-    final width = MediaQuery.of(context).size.width * .8;
     switch (message.type) {
       case MessageType.text:
         return Text(message.text ?? '', style: TextStyle(color: textColor));
@@ -79,15 +75,7 @@ class MessageBubble extends StatelessWidget {
             return LinearProgressIndicator();
           case MessageStatus.sent:
             return ImageBubble(imageUrl: message.mediaDownloadUrl ?? '');
-          // return CachedNetworkImage(
-          //   height: height,
-          //   width: width,
-          //   imageUrl: message.mediaDownloadUrl ?? '',
-          //   fit: BoxFit.cover,
-          //   placeholder: (context, url) =>
-          //       Center(child: CircularProgressIndicator()),
-          //   errorWidget: (context, url, error) => Icon(Icons.broken_image),
-          // );
+
           case MessageStatus.failed:
             return Stack(
               alignment: Alignment.center,

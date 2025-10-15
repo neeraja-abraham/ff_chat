@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
@@ -23,7 +25,7 @@ class _VideoMessageBubbleState extends State<VideoMessageBubble> {
   }
 
   Future<void> _initVideo() async {
-    _videoController = VideoPlayerController.network(widget.url);
+    _videoController = VideoPlayerController.networkUrl(Uri.parse(widget.url));
     await _videoController!.initialize();
 
     // Compute max dimensions for web
